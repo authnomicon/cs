@@ -23,6 +23,7 @@
   ],
   "main": "./lib",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "passport-hotp": "0.0.1"
   },
   "devDependencies": {
