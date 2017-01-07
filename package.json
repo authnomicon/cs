@@ -1,11 +1,18 @@
 {
-  "name": "nodex-aaa-login-mfa",
+  "name": "@authnomicon/mfa",
   "version": "0.0.0",
   "description": "",
   "author": {
     "name": "Jared Hanson",
     "email": "jaredhanson@gmail.com",
-    "url": "authnomicon/nodex-aaa-login-mfa"
+    "url": "http://www.jaredhanson.net/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/authnomicon/nodex-mfa.git"
+  },
+  "bugs": {
+    "url": "http://github.com/authnomicon/nodex-mfa/issues"
   },
   "license": "MIT",
   "licenses": [
@@ -15,15 +22,16 @@
     }
   ],
   "main": "./lib",
+  "dependencies": {
+    "passport-hotp": "0.0.1"
+  },
   "devDependencies": {
     "make-node": "^0.3.0",
     "mocha": "^2.0.0",
-    "chai": "^3.0.0"
+    "chai": "^3.0.0",
+    "sinon": "^1.17.0"
   },
   "scripts": {
     "test": "node_modules/.bin/mocha test/*.test.js"
-  },
-  "dependencies": {
-    "passport-hotp": "0.0.1"
   }
 }
