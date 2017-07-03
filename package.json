@@ -21,10 +21,13 @@
       "url": "http://opensource.org/licenses/MIT"
     }
   ],
-  "main": "./lib",
+  "main": "./app",
   "assembly": {
     "namespace": "mfa",
     "components": [
+      "ceremony",
+      "otp/handlers/verify",
+      "oob/handlers/verify"
     ]
   },
   "dependencies": {
