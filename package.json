@@ -25,6 +25,7 @@
   "assembly": {
     "namespace": "mfa",
     "components": [
+      "authentication/oob/verify",
       "ceremony",
       "otp/handlers/verify",
       "oob/handlers/verify"
