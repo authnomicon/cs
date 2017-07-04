@@ -7,8 +7,6 @@ exports = module.exports = function(gateway) {
 };
 
 exports['@implements'] = 'http://schemas.authnomicon.org/js/security/authentication/oob/challenge';
-
-// // TODO: Make channels/vendors pluggable, and then remove this
 exports['@require'] = [
   './gateway'
 ];
