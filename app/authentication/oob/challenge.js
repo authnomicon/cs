@@ -1,14 +1,8 @@
-exports = module.exports = function(auth0Challenge, duoChallenge) {
+exports = module.exports = function(gateway) {
   
   return function(authenticator, cb) {
-    switch (authenticator.vendor) {
-    case 'auth0':
-      return auth0Challenge(authenticator, cb);
-    //case 'duo':
-      //return duoVerify(authenticator, txnID, cb);
-    default:
-      return cb(new Error('Unknown authenticator vendor'))
-    }
+    var type = authenticator.vendor;
+    return gateway.challenge(type, authenticator, cb);
   };
 };
 
@@ -16,6 +10,5 @@ exports['@implements'] = 'http://schemas.authnomicon.org/js/security/authenticat
 
 // // TODO: Make channels/vendors pluggable, and then remove this
 exports['@require'] = [
-  'http://schemas.authnomicon.org/js/login/mfa/opt/auth0/oob/challenge',
-  //'http://schemas.authnomicon.org/js/login/mfa/opt/duo/oob/verify'
+  './gateway'
 ];
