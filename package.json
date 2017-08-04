@@ -29,7 +29,6 @@
       "authentication/oob/challenge",
       "authentication/oob/verify",
       "ceremony",
-      "otp/handlers/verify",
       "oob/handlers/verify"
     ]
   },
