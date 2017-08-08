@@ -25,11 +25,11 @@
   "assembly": {
     "namespace": "mfa",
     "components": [
+      "authentication/oob/main",
       "authentication/oob/associate",
       "authentication/oob/challenge",
       "authentication/oob/verify",
-      "ceremony",
-      "oob/handlers/verify"
+      "ceremony"
     ]
   },
   "dependencies": {
