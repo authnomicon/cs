@@ -1,4 +1,4 @@
-exports = module.exports = function(challenge, associate) {
+exports = module.exports = function(gateway, challenge, associate) {
   
   return {
     
@@ -9,13 +9,15 @@ exports = module.exports = function(challenge, associate) {
       
     },  // associate
     
-    challenge: challenge
+    challenge: challenge,
+    verify: gateway.verify.bind(gateway)
     
   };
 };
 
 exports['@implements'] = 'http://schemas.authnomicon.org/js/security/authentication/oob';
 exports['@require'] = [
+  './gateway',
   'http://schemas.authnomicon.org/js/security/authentication/oob/challenge',
   'http://schemas.authnomicon.org/js/security/authentication/oob/associate'
 ];

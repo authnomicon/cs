@@ -1,7 +1,7 @@
 exports = module.exports = function(container, logger) {
   // Load modules.
-  var Gateway = require('../../../lib/oobgateway');
-  
+  //var Gateway = require('../../../lib/oobgateway');
+  var Gateway = require('passport-oob').Gateway;
   
   var gateway = new Gateway();
   

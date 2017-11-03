@@ -1,9 +1,7 @@
 exports = module.exports = function(gateway) {
   
-  return function(authenticator, cb) {
-    var type = authenticator.vendor;
-    return gateway.challenge(type, authenticator, cb);
-  };
+  // TODO: Can just put this directly on main
+  return gateway.challenge.bind(gateway);
 };
 
 exports['@implements'] = 'http://schemas.authnomicon.org/js/security/authentication/oob/challenge';
