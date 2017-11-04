@@ -29,6 +29,7 @@
       "authentication/oob/associate",
       "authentication/oob/challenge",
       "authentication/oob/verify",
+      "authentication/otp/main",
       "ceremony"
     ]
   },
