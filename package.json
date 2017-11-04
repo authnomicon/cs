@@ -30,6 +30,7 @@
       "authentication/oob/challenge",
       "authentication/oob/verify",
       "authentication/otp/main",
+      "authentication/otp/algorithms/totp",
       "ceremony"
     ]
   },

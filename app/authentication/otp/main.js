@@ -1,6 +1,7 @@
 exports = module.exports = function(algorithms) {
   
   return {
+    generate: algorithms.generate.bind(algorithms),
     verify: algorithms.verify.bind(algorithms)
   };
 };
