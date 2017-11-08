@@ -1,8 +1,6 @@
 /* global describe, it */
 
-var $require = require('proxyquire');
 var expect = require('chai').expect;
-var sinon = require('sinon');
 var factory = require('../../../app/authentication/oob/main');
 
 

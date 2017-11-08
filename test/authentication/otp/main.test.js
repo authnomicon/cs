@@ -1,12 +1,10 @@
 /* global describe, it */
 
-var $require = require('proxyquire');
 var expect = require('chai').expect;
-var sinon = require('sinon');
 var factory = require('../../../app/authentication/otp/main');
 
 
-describe('authentication/otb/main', function() {
+describe('authentication/otp/main', function() {
   
   it('should export factory function', function() {
     expect(factory).to.be.a('function');
