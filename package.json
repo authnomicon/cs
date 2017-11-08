@@ -26,9 +26,6 @@
     "namespace": "mfa",
     "components": [
       "authentication/oob/main",
-      "authentication/oob/associate",
-      "authentication/oob/challenge",
-      "authentication/oob/verify",
       "authentication/otp/main",
       "authentication/otp/algorithms/hotp",
       "authentication/otp/algorithms/totp"
