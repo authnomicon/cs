@@ -1,21 +1,29 @@
 exports = module.exports = function(container, logger) {
   // Load modules.
-  //var Gateway = require('../../../lib/oobgateway');
   var Gateway = require('passport-oob').Gateway;
+  
   
   var gateway = new Gateway();
   
-  var channelComps = container.components('http://schemas.authnomicon.org/js/security/authentication/oob/Channel');
-  return Promise.all(channelComps.map(function(comp) { return comp.create(); } ))
-    .then(function(channels) {
-      channels.forEach(function(channel, i) {
-        var type = channelComps[i].a['@channel'];
+  return Promise.resolve(gateway)
+    .then(function(algorithms) {
+      // Register OOB channels.
+      var channelComps = container.components('http://schemas.authnomicon.org/js/security/authentication/oob/Channel');
+      
+      return Promise.all(channelComps.map(function(comp) { return comp.create(); } ))
+        .then(function(channels) {
+          channels.forEach(function(channel, i) {
+            var type = channelComps[i].a['@channel'];
         
-        gateway.use(type, channel);
-        logger.info('Loaded out-of-band authenticator channel: ' + type);
-      });
+            gateway.use(type, channel);
+            logger.info('Loaded out-of-band authenticator channel: ' + type);
+          });
+        })
+        .then(function() {
+          return gateway;
+        });
     })
-    .then(function() {
+    .then(function(gateway) {
       return gateway;
     });
 };
