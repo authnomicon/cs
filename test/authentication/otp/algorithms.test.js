@@ -20,7 +20,7 @@ describe('authentication/otp/algorithms', function() {
     }
     
     
-    describe.only('without any algorithms', function() {
+    describe('without any algorithms', function() {
       var AlgorithmsSpy = sinon.spy(Algorithms);
       
       before(function() {
