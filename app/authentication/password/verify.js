@@ -1,20 +1,41 @@
-exports = module.exports = function(directory) {
+exports = module.exports = function(realms) {
   
   return function(username, password, cb) {
     console.log('## verify password');
     console.log(username);
     
-    //return;
-    
-    directory.authenticate(username, password, function(err, user) {
-      if (err) { return cb(err); }
-      if (!user) { return cb(null, false); }
+    realms.resolve('TODO', function(err, realm) {
+      console.log(err);
+      console.log(realm);
       
-      var info = { method: 'password' };
-      return cb(null, user, info);
+      var pwver = realm.createPasswordVerifier(function() {
+        console.log('PW VERIFIER READY!')
+        
+        pwver.verify(username, password, function(err, user) {
+          console.log('verify:');
+          console.log(err);
+          console.log(user);
+          
+          if (err) { return cb(err); }
+          if (!user) { return cb(null, false); }
+          
+          // TODO: If user === true, then look up in directory
+          /*
+          var dir = realm.createDirectory(function() {
+            console.log('DIRECTORY READY!')
+          });
+          */
+      
+          var info = { method: 'password' };
+          info.realm = realm;
+          return cb(null, user, info);
+        });
+      });
     });
   };
 };
 
 exports['@implements'] = 'http://schemas.authnomicon.org/js/security/authentication/password/verifyFn';
-exports['@require'] = [ 'http://i.bixbyjs.org/ds/Directory' ];
+exports['@require'] = [
+  'http://schemas.modulate.io/js/aaa/realms'
+];
