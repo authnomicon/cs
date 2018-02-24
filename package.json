@@ -28,7 +28,8 @@
       "authentication/oob/main",
       "authentication/otp/main",
       "authentication/otp/algorithms/hotp",
-      "authentication/otp/algorithms/totp"
+      "authentication/otp/algorithms/totp",
+      "authentication/password/verify"
     ]
   },
   "dependencies": {
