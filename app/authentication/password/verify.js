@@ -1,10 +1,12 @@
 exports = module.exports = function(realms) {
   
-  return function(username, password, cb) {
-    console.log('## verify password');
-    console.log(username);
+  return function(username, password, realm, cb) {
+    if (typeof realm == 'function') {
+      cb = realm;
+      realm = undefined;
+    }
     
-    realms.resolve('TODO', function(err, realm) {
+    realms.resolve(realm, function(err, realm) {
       console.log(err);
       console.log(realm);
       
