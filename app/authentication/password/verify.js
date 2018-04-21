@@ -29,7 +29,7 @@ exports = module.exports = function(realms) {
           */
       
           var info = { method: 'password' };
-          info.realm = realm;
+          //info.realm = realm;
           return cb(null, user, info);
         });
       });
