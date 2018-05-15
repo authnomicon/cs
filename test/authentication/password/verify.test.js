@@ -1,6 +1,7 @@
 /* global describe, it */
 
 var expect = require('chai').expect;
+var sinon = require('sinon');
 var factory = require('../../../app/authentication/password/verify');
 
 
@@ -13,6 +14,52 @@ describe('authentication/password/verify', function() {
   it('should be annotated', function() {
     expect(factory['@implements']).to.equal('http://schemas.authnomicon.org/js/security/authentication/password/verifyFn');
     expect(factory['@singleton']).to.be.undefined;
+  });
+  
+  describe('handler', function() {
+    var ds = {
+      authenticate: function(){}
+    }
+    
+    
+    describe('valid password', function() {
+      var user, info;
+      
+      before(function() {
+        sinon.stub(ds, 'authenticate').yields(null, { id: '501', username: 'johndoe' });
+      });
+      
+      after(function() {
+        ds.authenticate.restore();
+      });
+      
+      before(function(done) {
+        var verify = factory(ds);
+        
+        verify('johndoe', 's3cr1t', 'users', function(err, u, i) {
+          if (err) { return done(err); }
+          user = u;
+          info = i;
+          done();
+        })
+      });
+      
+      it('should authenticate against directory services', function() {
+        expect(ds.authenticate.callCount).to.equal(1);
+        expect(ds.authenticate.args[0][0]).to.equal('johndoe');
+        expect(ds.authenticate.args[0][1]).to.equal('s3cr1t');
+        expect(ds.authenticate.args[0][2]).to.equal('users');
+      });
+      
+      it('should yield user', function() {
+        expect(user).to.deep.equal({ id: '501', username: 'johndoe' });
+      });
+      
+      it('should yield info', function() {
+        expect(info).to.deep.equal({ method: 'password' });
+      });
+    });
+    
   });
   
 });
