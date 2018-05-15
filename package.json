@@ -25,11 +25,11 @@
   "assembly": {
     "namespace": "security",
     "components": [
+      "authentication/password/verify",
       "authentication/oob/main",
       "authentication/otp/main",
       "authentication/otp/algorithms/hotp",
-      "authentication/otp/algorithms/totp",
-      "authentication/password/verify"
+      "authentication/otp/algorithms/totp"
     ]
   },
   "dependencies": {
