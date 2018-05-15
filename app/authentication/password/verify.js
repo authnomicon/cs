@@ -1,19 +1,33 @@
 exports = module.exports = function(realms) {
   
   return function(username, password, realm, cb) {
+    console.log('AUTHENTICATE USER!!!');
+    console.log(username);
+    console.log(password);
+    console.log(realm);
+    
+    
     if (typeof realm == 'function') {
       cb = realm;
       realm = undefined;
     }
     
-    realms.resolve(realm, function(err, realm) {
+    realms.authenticate(username, password, realm, function(err, user) {
+      console.log('AUTHENTICATED!');
       console.log(err);
-      console.log(realm);
+      console.log(user)
       
-      var pwver = realm.createPasswordVerifier(function() {
-        console.log('PW VERIFIER READY!')
+      //return;
+      
+    
+    //realms.resolve(realm, function(err, realm) {
+      //console.log(err);
+      //console.log(realm);
+      
+      //var pwver = realm.createPasswordVerifier(function() {
+        //console.log('PW VERIFIER READY!')
         
-        pwver.verify(username, password, function(err, user) {
+        //pwver.verify(username, password, function(err, user) {
           console.log('verify:');
           console.log(err);
           console.log(user);
@@ -31,8 +45,8 @@ exports = module.exports = function(realms) {
           var info = { method: 'password' };
           //info.realm = realm;
           return cb(null, user, info);
-        });
-      });
+          //});
+        //});
     });
   };
 };
