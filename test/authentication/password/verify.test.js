@@ -16,7 +16,7 @@ describe('authentication/password/verify', function() {
     expect(factory['@singleton']).to.be.undefined;
   });
   
-  describe('handler', function() {
+  describe('verify', function() {
     var ds = {
       authenticate: function(){}
     }
@@ -58,8 +58,8 @@ describe('authentication/password/verify', function() {
       it('should yield info', function() {
         expect(info).to.deep.equal({ method: 'password' });
       });
-    });
+    }); // valid password
     
-  });
+  }); // verify
   
 });
