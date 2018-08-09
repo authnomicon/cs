@@ -19,5 +19,5 @@ exports = module.exports = function(ds) {
 
 exports['@implements'] = 'http://schemas.authnomicon.org/js/security/authentication/password/verifyFn';
 exports['@require'] = [
-  'http://schemas.authnomicon.org/js/ds'
+  'http://schemas.authnomicon.org/js/ds/realms'
 ];
