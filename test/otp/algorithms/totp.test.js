@@ -3,7 +3,7 @@
 var $require = require('proxyquire');
 var expect = require('chai').expect;
 var sinon = require('sinon');
-var factory = require('../../../../app/authentication/otp/algorithms/totp');
+var factory = require('../../../app/otp/algorithms/totp');
 var TotpAlgorithm = require('passport-otp').TotpAlgorithm;
 
 
@@ -21,7 +21,7 @@ describe('authentication/otp/algorithms/totp', function() {
   describe('creating algorithm', function() {
     var TotpAlgorithmSpy = sinon.spy(TotpAlgorithm);
     
-    var factory = $require('../../../../app/authentication/otp/algorithms/totp',
+    var factory = $require('../../../app/otp/algorithms/totp',
       { 'passport-otp': { TotpAlgorithm: TotpAlgorithmSpy } });
     var algorithm = factory();
     

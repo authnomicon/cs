@@ -3,7 +3,7 @@
 var $require = require('proxyquire');
 var expect = require('chai').expect;
 var sinon = require('sinon');
-var factory = require('../../../app/authentication/oob/gateway');
+var factory = require('../../app/oob/gateway');
 var Gateway = require('passport-oob').Gateway;
 
 
@@ -33,7 +33,7 @@ describe('authentication/oob/gateway', function() {
       
       var gateway;
       before(function(done) {
-        var factory = $require('../../../app/authentication/oob/gateway',
+        var factory = $require('../../app/oob/gateway',
           { 'passport-oob': { Gateway: GatewaySpy } });
         
         var promise = factory(container);

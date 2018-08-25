@@ -2,7 +2,7 @@
 
 var expect = require('chai').expect;
 var sinon = require('sinon');
-var factory = require('../../../app/authentication/password/verify');
+var factory = require('../../app/password/verify');
 
 
 describe('authentication/password/verify', function() {
