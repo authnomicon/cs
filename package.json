@@ -25,6 +25,7 @@
   "assembly": {
     "namespace": "security",
     "components": [
+      "authentication/password/main",
       "authentication/password/verify",
       "authentication/oob/main",
       "authentication/otp/main",
