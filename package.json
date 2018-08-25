@@ -25,12 +25,12 @@
   "assembly": {
     "namespace": "org.authnomicon/cs",
     "components": [
-      "authentication/password/main",
-      "authentication/password/verify",
-      "authentication/oob/main",
-      "authentication/otp/main",
-      "authentication/otp/algorithms/hotp",
-      "authentication/otp/algorithms/totp"
+      "password/main",
+      "password/verify",
+      "oob/main",
+      "otp/main",
+      "otp/algorithms/hotp",
+      "otp/algorithms/totp"
     ]
   },
   "dependencies": {

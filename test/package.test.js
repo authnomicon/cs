@@ -12,10 +12,10 @@ describe('@authnomicon/security', function() {
       expect(json.assembly.namespace).to.equal('org.authnomicon/cs');
       
       expect(json.assembly.components).to.have.length(6);
-      expect(json.assembly.components).to.include('authentication/oob/main');
-      expect(json.assembly.components).to.include('authentication/otp/main');
-      expect(json.assembly.components).to.include('authentication/otp/algorithms/hotp');
-      expect(json.assembly.components).to.include('authentication/otp/algorithms/totp');
+      expect(json.assembly.components).to.include('oob/main');
+      expect(json.assembly.components).to.include('otp/main');
+      expect(json.assembly.components).to.include('otp/algorithms/hotp');
+      expect(json.assembly.components).to.include('otp/algorithms/totp');
     });
   });
   
