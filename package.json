@@ -23,7 +23,7 @@
   ],
   "main": "./app",
   "assembly": {
-    "namespace": "security",
+    "namespace": "org.authnomicon/cs",
     "components": [
       "authentication/password/main",
       "authentication/password/verify",
