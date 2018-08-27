@@ -11,7 +11,7 @@ describe('authentication/otp/main', function() {
   });
   
   it('should be annotated', function() {
-    expect(factory['@implements']).to.equal('http://schemas.authnomicon.org/js/security/authentication/otp');
+    expect(factory['@implements']).to.equal('http://schemas.authnomicon.org/js/cs/otp');
   });
   
   describe('creating interface', function() {

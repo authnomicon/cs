@@ -7,7 +7,7 @@ exports = module.exports = function(gateway) {
   };
 };
 
-exports['@implements'] = 'http://schemas.authnomicon.org/js/security/authentication/oob';
+exports['@implements'] = 'http://schemas.authnomicon.org/js/cs/oob';
 exports['@require'] = [
   './gateway'
 ];
