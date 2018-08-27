@@ -6,7 +6,7 @@ exports = module.exports = function(algorithms) {
   };
 };
 
-exports['@implements'] = 'http://schemas.authnomicon.org/js/security/authentication/otp';
+exports['@implements'] = 'http://schemas.authnomicon.org/js/cs/otp';
 exports['@require'] = [
   './algorithms'
 ];
