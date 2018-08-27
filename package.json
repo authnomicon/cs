@@ -26,7 +26,6 @@
     "namespace": "org.authnomicon/cs",
     "components": [
       "password/main",
-      "password/verify",
       "oob/main",
       "otp/main",
       "otp/algorithms/hotp",
