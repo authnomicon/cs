@@ -11,7 +11,7 @@ describe('authentication/oob/main', function() {
   });
   
   it('should be annotated', function() {
-    expect(factory['@implements']).to.equal('http://schemas.authnomicon.org/js/security/authentication/oob');
+    expect(factory['@implements']).to.equal('http://schemas.authnomicon.org/js/cs/oob');
   });
   
   describe('creating interface', function() {
