@@ -1,5 +1,5 @@
 exports = module.exports = function(container, logger) {
-  var Algorithms = require('passport-otp').Algorithms;
+  var Algorithms = require('../../lib/otp/algorithms');
   
   
   var algorithms = new Algorithms();

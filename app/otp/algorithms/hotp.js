@@ -1,5 +1,5 @@
 exports = module.exports = function() {
-  var HotpAlgorithm = require('passport-otp').HotpAlgorithm;
+  var HotpAlgorithm = require('../../../lib/otp/algorithms/hotp');
   
   return new HotpAlgorithm();
 };
