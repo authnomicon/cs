@@ -4,7 +4,7 @@ var $require = require('proxyquire');
 var expect = require('chai').expect;
 var sinon = require('sinon');
 var factory = require('../../app/otp/algorithms');
-var Algorithms = require('passport-otp').Algorithms;
+var Algorithms = require('../../lib/otp/algorithms');
 
 
 describe('authentication/otp/algorithms', function() {
@@ -34,7 +34,7 @@ describe('authentication/otp/algorithms', function() {
       var algorithms;
       before(function(done) {
         var factory = $require('../../app/otp/algorithms',
-          { 'passport-otp': { Algorithms: AlgorithmsSpy } });
+          { '../../lib/otp/algorithms': AlgorithmsSpy });
         
         var promise = factory(container);
         promise.then(function(a) {

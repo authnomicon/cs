@@ -4,7 +4,7 @@ var $require = require('proxyquire');
 var expect = require('chai').expect;
 var sinon = require('sinon');
 var factory = require('../../../app/otp/algorithms/hotp');
-var HotpAlgorithm = require('passport-otp').HotpAlgorithm;
+var HotpAlgorithm = require('../../../lib/otp/algorithms/hotp');
 
 
 describe('authentication/otp/algorithms/hotp', function() {
@@ -22,7 +22,7 @@ describe('authentication/otp/algorithms/hotp', function() {
     var HotpAlgorithmSpy = sinon.spy(HotpAlgorithm);
     
     var factory = $require('../../../app/otp/algorithms/hotp',
-      { 'passport-otp': { HotpAlgorithm: HotpAlgorithmSpy } });
+      { '../../../lib/otp/algorithms/hotp': HotpAlgorithmSpy });
     var algorithm = factory();
     
     it('should construct algorithm', function() {
