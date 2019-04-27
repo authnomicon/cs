@@ -1,23 +1,16 @@
-exports = module.exports = function(ds) {
+exports = module.exports = function(sd) {
   
-  return function(username, password, realm, cb) {
-    if (typeof realm == 'function') {
-      cb = realm;
-      realm = undefined;
-    }
-    
-    ds.authenticate(username, password, realm, function(err, user) {
+  return function(service, username, password, cb) {
+    var conn = sd.createConnection(service.type, service);
+    conn.verify(username, password, function(err, user) {
       if (err) { return cb(err); }
       if (!user) { return cb(null, false); }
-  
-      var info = { method: 'password' };
-      //info.realm = realm;
-      return cb(null, user, info);
+      return cb(null, user);
     });
   };
 };
 
 exports['@implements'] = 'http://schemas.authnomicon.org/js/security/authentication/password/verifyFn';
 exports['@require'] = [
-  'http://schemas.authnomicon.org/js/ds/realms'
+  'http://i.bixbyjs.org/sd'
 ];
