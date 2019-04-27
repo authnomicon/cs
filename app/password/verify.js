@@ -10,7 +10,6 @@ exports = module.exports = function(sd) {
   };
 };
 
-exports['@implements'] = 'http://schemas.authnomicon.org/js/security/authentication/password/verifyFn';
 exports['@require'] = [
   'http://i.bixbyjs.org/sd'
 ];
