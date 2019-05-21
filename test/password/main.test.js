@@ -10,6 +10,9 @@ describe('password/main', function() {
     components: function(){},
     create: function(){}
   };
+  var _passwordCredentialService = {
+    verify: function(){}
+  };
   
   
   it('should export factory function', function() {
@@ -31,10 +34,6 @@ describe('password/main', function() {
   }); // should construct API
   
   describe('API', function() {
-    var _passwordCredentialService = {
-      verify: function(){}
-    };
-    
     sinon.stub(_container, 'components').returns([ { a: { '@name': 'ldap' } } ]);
     var _connect = sinon.stub().yieldsAsync(null, _passwordCredentialService);
     var api = factory(_container, _connect);
