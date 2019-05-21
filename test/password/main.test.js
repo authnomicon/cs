@@ -38,7 +38,7 @@ describe('password/main', function() {
     var _connect = sinon.stub().yieldsAsync(null, _passwordCredentialService);
     var api = factory(_container, _connect);
   
-    describe('verify', function() {
+    describe('.verify', function() {
       
       it('should validate correct password', function(done) {
         sinon.stub(_passwordCredentialService, 'verify').yieldsAsync(null, true);
@@ -52,7 +52,7 @@ describe('password/main', function() {
         });
       }); // should validate correct password
     
-    }); // verify
+    }); // .verify
   
   }); // API
   
