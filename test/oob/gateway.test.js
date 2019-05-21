@@ -28,7 +28,7 @@ describe('authentication/oob/gateway', function() {
       });
       
       after(function() {
-        container.components.restore();
+        //container.components.restore();
       });
       
       var gateway;

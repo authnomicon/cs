@@ -28,7 +28,7 @@ describe('authentication/otp/algorithms', function() {
       });
       
       after(function() {
-        container.components.restore();
+        //container.components.restore();
       });
       
       var algorithms;

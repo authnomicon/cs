@@ -1,6 +1,7 @@
 /* global describe, it */
 
 var expect = require('chai').expect;
+var sinon = require('sinon');
 
 
 describe('@authnomicon/security', function() {
@@ -25,4 +26,8 @@ describe('@authnomicon/security', function() {
     }).to.throw(Error).with.property('code', 'MODULE_NOT_FOUND');
   });
   
+});
+
+afterEach(function() {
+  sinon.restore();
 });
